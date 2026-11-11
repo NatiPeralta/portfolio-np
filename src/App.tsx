@@ -13,7 +13,7 @@ import { useParticles } from './hooks/useParticles';
 import { PROJECTS } from './data/projects';
 import { SKILLS } from './data/skills';
 import { Project, ContactFormData } from './types';
-import './styles/global.css';
+import "./styles/global.css";
 
 export function App() {
   const [activeTab, setActiveTab] = useState('sobre');

@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'React' | 'JavaScript' | 'TypeScript' | 'UI/UX';
+  category: 'Projetos Pessoais' | 'Projetos Acadêmicos' | 'Projetos em Parceria';
   description: string;
   longDescription: string;
   tags: string[];

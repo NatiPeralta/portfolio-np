@@ -15,9 +15,9 @@ export const Projects: React.FC<ProjectsProps> = ({
   setFilter,
   onSelectProject
 }) => {
-  const categories = ['Todos', 'React', 'TypeScript', 'JavaScript', 'UI/UX'];
+  const categories = ['Todos Projetos', 'Projetos Pessoais', 'Projetos Acadêmicos', 'Projetos em Parceria'];
 
-  const filteredProjects = filter === 'Todos'
+  const filteredProjects = filter === 'Todos Projetos'
     ? projects
     : projects.filter((p) => p.category === filter);
 
@@ -26,9 +26,9 @@ export const Projects: React.FC<ProjectsProps> = ({
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
-           // PORTFÓLIO DE DESTAQUES
+           // PORTFÓLIO DE TRABALHOS
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Projetos Recentes</h2>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Projetos em Destaque</h2>
         </div>
 
         <div className="flex flex-wrap gap-2 bg-white/5 p-1.5 rounded-2xl border border-white/10">
@@ -61,10 +61,6 @@ export const Projects: React.FC<ProjectsProps> = ({
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#16152b] via-transparent to-transparent opacity-80"></div>
-              <span className="absolute top-4 left-4 bg-[#16152b]/80 backdrop-blur-md text-[#e8a8bf] border border-[#e8a8bf]/30 text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
-                {project.category}
-              </span>
             </div>
 
             <div className="p-6 space-y-4">
