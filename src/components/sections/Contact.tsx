@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Linkedin, Github } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../../types';
 
 interface ContactProps {
@@ -14,10 +15,36 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
     message: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSendMessage(formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
+
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        setLoading(false);
+        onSendMessage(formData); // Exibe o Toast de sucesso!
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error('Erro ao enviar e-mail via EmailJS:', error);
+        alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente!');
+      });
+
   };
 
   return (
@@ -26,9 +53,9 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
         <div className="lg:col-span-5 space-y-8">
           <div>
             <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
-              Conecte-se comigo
+              // CONECTE-SE COMIGO
             </span>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Vamos criar algo incrível juntas?</h2>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Quer conversar comigo?</h2>
             <p className="text-white/60 text-sm leading-relaxed">
               Estou disponível para vagas Júnior de Front-End Developer, projetos freelancers ou parcerias de desenvolvimento.
             </p>
@@ -41,7 +68,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
               </div>
               <div>
                 <p className="text-xs text-white/50">E-mail para contato</p>
-                <p className="text-sm font-medium text-white">nataliaperalta@exemplo.com</p>
+                <p className="text-sm font-medium text-white">nati.g.peralta@hotmail.com</p>
               </div>
             </div>
 
@@ -58,7 +85,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
 
           <div className="flex items-center gap-4 pt-4">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/natália-peralta"
               target="_blank"
               rel="noreferrer"
               className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-[#e8a8bf] hover:border-[#e8a8bf]/40 transition-all"
@@ -66,7 +93,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/NatiPeralta"
               target="_blank"
               rel="noreferrer"
               className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-[#e8a8bf] hover:border-[#e8a8bf]/40 transition-all"
@@ -130,10 +157,20 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl bg-[#e8a8bf] text-[#16152b] font-semibold text-sm hover:bg-[#f0b8cc] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#e8a8bf]/20"
+              disabled={loading}
+              className="w-full py-4 rounded-xl bg-[#e8a8bf] text-[#16152b] font-semibold text-sm hover:bg-[#f0b8cc] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#e8a8bf]/20 disabled:opacity-50"
             >
-              Enviar Mensagem
-              <Send className="w-4 h-4" />
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Enviando...
+                </>  
+              ) : (
+                <>
+                  Enviar Mensagem
+                  <Send className="w-4 h-4"/>
+                </>
+              )}
             </button>
           </form>
         </div>
