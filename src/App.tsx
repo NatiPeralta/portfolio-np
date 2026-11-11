@@ -18,7 +18,7 @@ import "./styles/global.css";
 export function App() {
   const [activeTab, setActiveTab] = useState('sobre');
   const [viewMode, setViewMode] = useState<'photo' | 'code'>('code');
-  const [filter, setFilter] = useState('Todos');
+  const [filter, setFilter] = useState('Todos Projetos');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
