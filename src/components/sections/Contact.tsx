@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, Mail, MapPin, Linkedin, Github, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../../types';
+import { Reveal } from '../common/Reveal';
 
 interface ContactProps {
   onSendMessage: (data: ContactFormData) => void;
@@ -49,6 +50,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
 
   return (
     <section id="contato" className="py-24 px-6 max-w-7xl mx-auto">
+      <Reveal>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 space-y-8">
           <div>
@@ -175,6 +177,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
           </form>
         </div>
       </div>
+     </Reveal> 
     </section>
   );
 };

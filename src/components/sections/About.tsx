@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Code, Palette } from 'lucide-react';
+import { Reveal } from '../common/Reveal';
 
 export const About: React.FC = () => {
   const cards = [
@@ -22,8 +23,8 @@ export const About: React.FC = () => {
 
   return (
     <section id="sobre-mim" className="py-24 px-6 max-w-7xl mx-auto">
-      {/* Cabeçalho da Seção com comentário de código */}
-      <div className="text-center max-w-2xl mx-auto mb-16">
+      <Reveal>
+          <div className="text-center max-w-2xl mx-auto mb-16">
         <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
           // CONHEÇA MINHA TRAJETÓRIA
         </span>
@@ -32,6 +33,7 @@ export const About: React.FC = () => {
         </h2>
         <div className="w-12 h-1 bg-[#e8a8bf] mx-auto rounded-full"></div>
       </div>
+      
 
       {/* Grid de Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -57,6 +59,7 @@ export const About: React.FC = () => {
           );
         })}
       </div>
+      </Reveal>
     </section>
   );
 };

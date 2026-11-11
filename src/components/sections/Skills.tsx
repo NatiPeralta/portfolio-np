@@ -1,5 +1,6 @@
 import React from 'react';
 import { Skill } from '../../types';
+import { Reveal } from '../common/Reveal';
 
 interface SkillsProps {
   skills: Skill[];
@@ -7,6 +8,7 @@ interface SkillsProps {
 
 export const Skills: React.FC<SkillsProps> = ({ skills }) => {
   return (
+    <Reveal>
     <section id="habilidades" className="py-24 px-6 max-w-7xl mx-auto bg-white/[0.01] rounded-3xl border border-white/5 my-12">
       <div className="text-center max-w-2xl mx-auto mb-16">
         <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
@@ -39,5 +41,6 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         ))}
       </div>
     </section>
+    </Reveal>
   );
 };

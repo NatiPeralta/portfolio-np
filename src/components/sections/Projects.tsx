@@ -1,6 +1,7 @@
 import React from 'react';
 import { Project } from '../../types';
 import { ArrowUpRight } from 'lucide-react';
+import { Reveal } from '../common/Reveal';
 
 interface ProjectsProps {
   projects: Project[];
@@ -23,6 +24,7 @@ export const Projects: React.FC<ProjectsProps> = ({
 
   return (
     <section id="projetos" className="py-24 px-6 max-w-7xl mx-auto">
+      <Reveal>
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
@@ -86,6 +88,7 @@ export const Projects: React.FC<ProjectsProps> = ({
           </div>
         ))}
       </div>
+    </Reveal>
     </section>
   );
 };

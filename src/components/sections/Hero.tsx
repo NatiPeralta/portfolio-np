@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUpRight, Code2, Sparkles, Check, Copy } from 'lucide-react';
+import { ArrowUpRight, Code2, Sparkles, Check, Copy, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 import foto from "../../assets/NatiPeralta.png";
 
 interface HeroProps {
@@ -15,28 +16,60 @@ export const Hero: React.FC<HeroProps> = ({
   copied,
   handleCopyCode
 }) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] },
+    },
+  };
+
   return (
     <section id="sobre" className="relative pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-        {/* Lado Esquerdo */}
-        <div className="lg:col-span-7 space-y-6 z-10">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-white/80 text-[11px] font-mono tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            DISPONÍVEL PARA OPORTUNIDADES JÚNIOR
-          </div>
+        
+        {/* Lado Esquerdo com Animação em Cascata */}
+        <motion.div
+          className="lg:col-span-7 space-y-6 z-10"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-white/80 text-[11px] font-mono tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              DISPONÍVEL PARA OPORTUNIDADES JÚNIOR
+            </div>
+          </motion.div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
-            Olá, eu sou <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#e8a8bf]">
-              Natália Peralta
-            </span>
-          </h1>
+          <motion.div variants={itemVariants}>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+              Olá, eu sou <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#e8a8bf]">
+                Natália Peralta
+              </span>
+            </h1>
+          </motion.div>
 
-          <p className="text-lg text-white/70 max-w-xl font-light leading-relaxed">
-          Desenvolvedora front-end em construção, apaixonada por transformar ideias em experiências digitais intuitivas, elegantes e acessíveis.
-          </p>
+          <motion.div variants={itemVariants}>
+            <p className="text-lg text-white/70 max-w-xl font-light leading-relaxed">
+              Desenvolvedora front-end em construção, apaixonada por transformar ideias em experiências digitais intuitivas, elegantes e acessíveis.
+            </p>
+          </motion.div>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#projetos"
               className="px-6 py-3.5 rounded-full bg-[#e8a8bf] text-[#16152b] font-semibold text-sm hover:bg-[#f0b8cc] transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#e8a8bf]/20 hover:scale-105"
@@ -46,21 +79,29 @@ export const Hero: React.FC<HeroProps> = ({
             </a>
 
             <a
-              href="#contato"
-              className="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 font-medium text-sm transition-all duration-300 flex items-center gap-2"
+              href="/curriculo.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 font-medium text-sm transition-all duration-300 flex items-center gap-2 hover:border-[#e8a8bf]/40"
             >
-              Entrar em contato
+              <FileText className="w-4 h-4 text-[#e8a8bf]" />
+              Currículo
             </a>
-          </div>
+          </motion.div>
 
-          <div className="pt-10 flex items-center gap-3 text-xs text-white/40 font-mono tracking-widest uppercase">
+          <motion.div variants={itemVariants} className="pt-10 flex items-center gap-3 text-xs text-white/40 font-mono tracking-widest uppercase">
             <div className="w-8 h-px bg-white/20"></div>
-              <span>Role para descobrir</span>
-          </div>
-        </div>
+            <span>Role para descobrir</span>
+          </motion.div>
+        </motion.div>
 
-        {/* Lado Direito: Alternador e Card */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+        {/* Lado Direito */}
+        <motion.div
+          className="lg:col-span-5 flex flex-col items-center justify-center relative"
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
+        >
           <div className="mb-4 bg-white/5 p-1.5 rounded-full border border-white/10 flex items-center gap-1 z-20">
             <button
               onClick={() => setViewMode('photo')}
@@ -119,12 +160,11 @@ export const Hero: React.FC<HeroProps> = ({
                     <span className="text-[#e8a8bf] text-xs font-sans">✦ 2026</span>
                   </div>
 
-                  {/* Código Colorido em Destaque */}
                   <div className="space-y-1 mb-5 text-xs sm:text-sm font-mono">
                     <p>
                       <span className="text-[#9d4edd] font-semibold">const</span>{' '}
                       <span className="text-[#818cf8]">developer</span>{' '}
-                      <span className="text-white">=</span> <span className="text-white">&#123;</span>
+                      <span className="text-white">=</span> <span className="text-white">{`{`}</span>
                     </p>
                     <p className="pl-4">
                       <span className="text-[#e8a8bf]">name</span>
@@ -147,7 +187,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <p className="pl-4">
                       <span className="text-[#e8a8bf]">focus</span>
                       <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'React &amp; Modern UI/UX'</span>
+                      <span className="text-[#34d399]">'React & Modern UI/UX'</span>
                       <span className="text-white">,</span>
                     </p>
                     <p className="pl-4">
@@ -161,7 +201,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <span className="text-white">:</span>{' '}
                       <span className="text-[#34d399]">'always'</span>
                     </p>
-                    <p className="text-white">&#125;;</p>
+                    <p className="text-white">{`};`}</p>
                   </div>
                 </div>
 
@@ -187,7 +227,8 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
