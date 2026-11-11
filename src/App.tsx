@@ -12,7 +12,7 @@ import { Toast } from './components/common/Toast';
 import { useParticles } from './hooks/useParticles';
 import { PROJECTS } from './data/projects';
 import { SKILLS } from './data/skills';
-import { Project, ContactFormData } from './types';
+import { Project } from './types';
 import "./styles/global.css";
 
 export function App() {
