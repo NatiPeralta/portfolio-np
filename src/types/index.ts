@@ -12,7 +12,6 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  level: number;
   category: 'Frontend' | 'UI/UX' | 'Ferramentas';
   iconName: string;
 }

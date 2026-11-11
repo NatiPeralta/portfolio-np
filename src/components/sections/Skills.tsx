@@ -22,19 +22,18 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="p-6 bg-[#1e1c3a]/50 border border-white/10 rounded-2xl hover:border-[#e8a8bf]/40 transition-all duration-300 group"
+            className="p-6 bg-[#1e1c3a]/50 border border-white/10 rounded-2xl hover:border-[#e8a8bf]/40 transition-all duration-300 group flex flex-col justify-between"
           >
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xs text-[#e8a8bf] font-mono uppercase tracking-wider">{skill.category}</span>
-              <span className="text-xs font-bold text-white/80">{skill.level}%</span>
+            <div>
+              <div className='mb-6'>
+                <span className="text-xs text-[#e8a8bf] font-mono uppercase tracking-wider">{skill.category}</span>
+                <h3 className="font-bold text-lg mt-1 group-hover:text-[#e8a8bf] transition-colors">{skill.name}</h3>
+              </div>
             </div>
-            <h3 className="font-bold text-lg mb-3 group-hover:text-[#e8a8bf] transition-colors">{skill.name}</h3>
-
-            <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden border border-white/5">
+          
+            <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden border border-white/5">
               <div
-                className="bg-gradient-to-r from-[#e8a8bf] to-[#9d4edd] h-full rounded-full transition-all duration-1000"
-                style={{ width: `${skill.level}%` }}
-              ></div>
+                className="bg-gradient-to-r from-[#e8a8bf] to-[#9d4edd] w-full h-full rounded-full opacity-80 group-hover:opacity-100 transition-opacity"></div>
             </div>
           </div>
         ))}
