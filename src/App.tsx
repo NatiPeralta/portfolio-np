@@ -41,8 +41,8 @@ export function App() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSendMessage = (data: ContactFormData) => {
-    setToastMessage('Mensagem enviada com sucesso! Obrigado pelo contato.');
+  const handleSendMessage = () => {
+    setToastMessage('Mensagem enviada com sucesso! Obrigado pelo contato!');
     setTimeout(() => setToastMessage(null), 4000);
   };
 
