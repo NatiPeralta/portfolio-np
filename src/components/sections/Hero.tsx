@@ -20,23 +20,23 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
         {/* Lado Esquerdo */}
         <div className="lg:col-span-7 space-y-6 z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#e8a8bf]/30 text-[#e8a8bf] text-xs font-medium tracking-wide">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-white/80 text-[11px] font-mono tracking-wider">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             DISPONÍVEL PARA OPORTUNIDADES JÚNIOR
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
-            Interfaces que <br />
+            Olá, eu sou <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#e8a8bf]">
-              conectam ideias.
+              Natália Peralta
             </span>
           </h1>
 
           <p className="text-lg text-white/70 max-w-xl font-light leading-relaxed">
-            Olá, sou <strong className="text-white font-semibold">Natália Peralta</strong> — desenvolvedora front-end em construção, apaixonada por transformar ideias em experiências digitais intuitivas, elegantes e acessíveis.
+          Desenvolvedora front-end em construção, apaixonada por transformar ideias em experiências digitais intuitivas, elegantes e acessíveis.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#projetos"
               className="px-6 py-3.5 rounded-full bg-[#e8a8bf] text-[#16152b] font-semibold text-sm hover:bg-[#f0b8cc] transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#e8a8bf]/20 hover:scale-105"
@@ -53,15 +53,9 @@ export const Hero: React.FC<HeroProps> = ({
             </a>
           </div>
 
-          <div className="pt-8 flex items-center gap-6 text-xs text-white/40 border-t border-white/5">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e8a8bf]"></span>
-              CIÊNCIA DA COMPUTAÇÃO
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e8a8bf]"></span>
-              FORMAÇÃO +PRATI
-            </div>
+          <div className="pt-10 flex items-center gap-3 text-xs text-white/40 font-mono tracking-widest uppercase">
+            <div className="w-8 h-px bg-white/20"></div>
+              <span>Role para descobrir</span>
           </div>
         </div>
 
@@ -113,7 +107,6 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               </div>
             ) : (
-              /* Card de Código Ajustado conforme Imagem 1 */
               <div className="relative w-full rounded-2xl border border-[#e8a8bf]/30 bg-[#1e1c3a]/90 backdrop-blur-md p-6 shadow-2xl transition-all duration-500 flex flex-col justify-between font-mono text-sm leading-relaxed">
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">

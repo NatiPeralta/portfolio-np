@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
 import { Marquee } from './components/sections/Marquee';
+import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Skills } from './components/sections/Skills';
 import { Contact } from './components/sections/Contact';
@@ -53,14 +54,18 @@ export function App() {
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <main className="relative z-10">
-        <Hero
+        <div className="min-h-screen flex flex-col justify-center">
+          <Hero
           viewMode={viewMode}
           setViewMode={setViewMode}
           copied={copied}
           handleCopyCode={handleCopyCode}
         />
+        </div>
 
         <Marquee />
+
+        <About />
 
         <Projects
           projects={PROJECTS}

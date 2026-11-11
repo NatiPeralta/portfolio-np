@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           <div className="hidden sm:flex items-center gap-3">
             <div className="w-px h-4 bg-white/20"></div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-normal">
-            FRONT-END DEVELOPER <span className="text-white/30 mx-1">·</span> CREATIVE MIND
+            FRONT-END DEVELOPER
             </span>
           </div>
         </div>

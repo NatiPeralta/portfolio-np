@@ -25,7 +25,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 space-y-8">
           <div>
-            <span className="text-xs uppercase tracking-widest text-[#e8a8bf] font-semibold block mb-2">
+            <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
               Conecte-se comigo
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Vamos criar algo incrível juntas?</h2>

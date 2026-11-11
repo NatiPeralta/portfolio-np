@@ -25,8 +25,8 @@ export const Projects: React.FC<ProjectsProps> = ({
     <section id="projetos" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
-          <span className="text-xs uppercase tracking-widest text-[#e8a8bf] font-semibold block mb-2">
-            Portfólio de Destaques
+          <span className="text-xs font-mono text-[#e8a8bf] tracking-widest block mb-2">
+           // PORTFÓLIO DE DESTAQUES
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">Projetos Recentes</h2>
         </div>
