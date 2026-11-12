@@ -196,17 +196,17 @@ export const Hero: React.FC<HeroProps> = ({
               }`}
               style={{ transformStyle: 'preserve-3d' }}
             >
-              {/* FRENTE: Foto */}
+              {/* FRENTE: Foto (Com fundo totalmente opaco: bg-[#16152b]) */}
               <div
-                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#1e1c3a]/80 backdrop-blur-md p-3 shadow-2xl overflow-hidden flex flex-col justify-between"
-                style={{ backfaceVisibility: 'hidden' }}
+                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 shadow-2xl overflow-hidden flex flex-col justify-between"
+                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
               >
                 <img
                   src={foto}
                   alt="Natália Peralta"
                   className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/90 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
+                <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
                   <div>
                     <p className="text-xs font-bold text-white">Ciência da Computação</p>
                     <p className="text-[10px] text-[#e8a8bf]">Graduada em 2024</p>
@@ -215,12 +215,13 @@ export const Hero: React.FC<HeroProps> = ({
                     🎓
                   </div>
                 </div>
-              </div>
+              </div> 
+              
 
               {/* VERSO: Hello World Card */}
               <div
-                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/30 bg-[#1e1c3a]/90 backdrop-blur-md p-6 shadow-2xl flex flex-col justify-between font-mono text-sm leading-relaxed [transform:rotateY(180deg)]"
-                style={{ backfaceVisibility: 'hidden' }}
+                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/30 bg-[#16152b] p-6 shadow-2xl flex flex-col justify-between font-mono text-sm leading-relaxed [transform:rotateY(180deg)]"
+                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
               >
                 <div>
                   <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
