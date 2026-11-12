@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Code2, Sparkles, Check, Copy, FileText } from 'lucide-react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import foto from "../../assets/NatiPeralta.png";
 
 interface HeroProps {
@@ -18,40 +18,7 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Valores de movimento do mouse para o efeito de "quase virada" (tilt & peek)
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  // Rotação sutil baseada na posição do mouse (dá a sensação de que o card está inclinando)
-  const rotateX = useTransform(mouseYSpring, [-0.10, 0.10], ['10deg', '-10deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.10, 0.10], ['-10deg', '10deg']);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    // Posição do mouse relativa ao centro do card (-0.5 a 0.5)
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
-
-  // Alternância automática a cada 5 segundos (pausa se o mouse estiver em cima)
+  // Alternância automática a cada 3 segundos (pausa se o mouse estiver em cima)
   useEffect(() => {
     if (isHovered) return;
 
@@ -176,22 +143,16 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Container Principal com Perspectiva e Eventos de Mouse */}
           <motion.div
-            className="relative w-full max-w-[440px] aspect-[4/4.5] perspective-1000 cursor-pointer"
-            onMouseMove={handleMouseMove}
+            className="relative w-full max-w-[440px] aspect-[4/4.5] cursor-pointer"
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={() => setIsHovered(false)}
             onClick={() => setViewMode(viewMode === 'photo' ? 'code' : 'photo')}
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: 'preserve-3d',
-            }}
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-[#e8a8bf]/20 to-[#9d4edd]/20 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
 
             {/* Elemento que faz a rotação de Flip (Virar) */}
             <div
-              className={`w-full h-full relative duration-700 transition-all transform-gpu ${
+              className={`w-full h-full relative duration-500 transition-all transform-gpu ${
                 viewMode === 'code' ? '[transform:rotateY(180deg)]' : ''
               }`}
               style={{ transformStyle: 'preserve-3d' }}
