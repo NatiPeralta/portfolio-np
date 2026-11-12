@@ -17,8 +17,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Landing page corporativa de alta conversão e performance desenvolvida para o Grupo Vimais (empresa referência no setor de segurança e vigilância). Este projeto foi construído em parceria comercial com a Cubedev, focado em transmitir credibilidade, robustez e modernidade através de um design limpo e animações imersivas de rolagem.',
     tags: ['React', 'CSS3', 'JavaScript', 'GSAP ScrollTrigger'],
     image: vimais,
-    demoUrl: '#',
-    codeUrl: 'https://grupo-vimais-lp.vercel.app/'
+    demoUrl: 'https://grupo-vimais-lp.vercel.app/',
+    codeUrl: '#'
   },
   {
     id: '2',
