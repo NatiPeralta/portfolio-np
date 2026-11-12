@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] },
+      transition: { duration: 0.6 },
     },
   };
 
@@ -146,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({
           className="lg:col-span-5 flex flex-col items-center justify-center relative"
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           {/* Botões de Alternância Manual */}
           <div className="mb-4 bg-white/5 p-1.5 rounded-full border border-white/10 flex items-center gap-1 z-20">
