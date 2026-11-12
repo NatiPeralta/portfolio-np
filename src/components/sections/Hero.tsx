@@ -125,7 +125,7 @@ export const Hero: React.FC<HeroProps> = ({
             </a>
 
             <a
-              href="/curriculo.pdf"
+              href="/Natalia-Peralta-Desenvolvedora-Frontend.pdf"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 font-medium text-sm transition-all duration-300 flex items-center gap-2 hover:border-[#e8a8bf]/40"
