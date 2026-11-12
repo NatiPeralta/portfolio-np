@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Code2, Sparkles, Check, Copy, FileText } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import foto from "../../assets/NatiPeralta.png";
 
 interface HeroProps {
@@ -17,6 +17,36 @@ export const Hero: React.FC<HeroProps> = ({
   handleCopyCode
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  };
 
   // Alternância automática a cada 3 segundos (pausa se o mouse estiver em cima)
   useEffect(() => {
@@ -115,159 +145,188 @@ export const Hero: React.FC<HeroProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {/* Botões de Alternância Manual */}
-          <div className="mb-4 bg-white/5 p-1.5 rounded-full border border-white/10 flex items-center gap-1 z-20">
-            <button
-              onClick={() => setViewMode('photo')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 ${
-                viewMode === 'photo'
-                  ? 'bg-[#e8a8bf] text-[#16152b] shadow-md font-semibold'
-                  : 'text-white/60 hover:text-white'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              Foto
-            </button>
-            <button
-              onClick={() => setViewMode('code')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 ${
-                viewMode === 'code'
-                  ? 'bg-[#e8a8bf] text-[#16152b] shadow-md font-semibold'
-                  : 'text-white/60 hover:text-white'
-              }`}
-            >
-              <Code2 className="w-3.5 h-3.5" />
-              Hello World Card
-            </button>
-          </div>
 
-          {/* Container Principal com Perspectiva e Eventos de Mouse */}
-          <motion.div
-            className="relative w-full max-w-[440px] aspect-[4/4.5] cursor-pointer"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setViewMode(viewMode === 'photo' ? 'code' : 'photo')}
-          >
+          {/* VERSÃO MOBILE */}
+          <div className="block lg:hidden w-full max-w-[360px] aspect-[4/4.5] relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#e8a8bf]/20 to-[#9d4edd]/20 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-
-            {/* Elemento que faz a rotação de Flip (Virar) */}
-            <div
-              className={`w-full h-full relative duration-500 transition-all transform-gpu ${
-                viewMode === 'code' ? '[transform:rotateY(180deg)]' : ''
-              }`}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* FRENTE: Foto (Com fundo totalmente opaco: bg-[#16152b]) */}
-              <div
-                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 shadow-2xl overflow-hidden flex flex-col justify-between"
-                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-              >
-                <img
-                  src={foto}
-                  alt="Natália Peralta"
-                  className="w-full h-full object-cover rounded-xl"
-                />
-                <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
-                  <div>
-                    <p className="text-xs font-bold text-white">Ciência da Computação</p>
-                    <p className="text-[10px] text-[#e8a8bf]">Graduada em 2024</p>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-[#e8a8bf]/20 border border-[#e8a8bf] flex items-center justify-center text-[#e8a8bf] text-xs">
-                    🎓
-                  </div>
-                </div>
-              </div> 
-              
-
-              {/* VERSO: Hello World Card */}
-              <div
-                className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/30 bg-[#16152b] p-6 shadow-2xl flex flex-col justify-between font-mono text-sm leading-relaxed [transform:rotateY(180deg)]"
-                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-              >
+            <div className="w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 shadow-2xl overflow-hidden flex flex-col justify-between">
+              <img
+                src={foto}
+                alt="Natália Peralta"
+                className="w-full h-full object-cover rounded-xl"
+              />
+              <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
                 <div>
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-rose-500"></span>
-                      <span className="w-3 h-3 rounded-full bg-amber-500"></span>
-                      <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
-                    </div>
-                    <span className="text-white/50 text-xs tracking-wider">hello-world.tsx</span>
-                    <span className="text-[#e8a8bf] text-xs font-sans">✦ 2026</span>
-                  </div>
-
-                  <div className="space-y-1 text-xs sm:text-sm font-mono">
-                    <p>
-                      <span className="text-[#9d4edd] font-semibold">const</span>{' '}
-                      <span className="text-[#818cf8]">developer</span>{' '}
-                      <span className="text-white">=</span> <span className="text-white">{`{`}</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">name</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'Natália Peralta'</span>
-                      <span className="text-white">,</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">role</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'Front-End Developer'</span>
-                      <span className="text-white">,</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">degree</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'Ciência da Computação'</span>
-                      <span className="text-white">,</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">focus</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'React & Modern UI/UX'</span>
-                      <span className="text-white">,</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">passion</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'Transformar código em arte'</span>
-                      <span className="text-white">,</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-[#e8a8bf]">learning</span>
-                      <span className="text-white">:</span>{' '}
-                      <span className="text-[#34d399]">'always'</span>
-                    </p>
-                    <p className="text-white">{`};`}</p>
-                  </div>
+                  <p className="text-xs font-bold text-white">Ciência da Computação</p>
+                  <p className="text-[10px] text-[#e8a8bf]">Graduada em 2024</p>
                 </div>
-
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-white/40">// Pronto para criar algo novo?</span>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleCopyCode();
-                    }}
-                    className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-[#e8a8bf] hover:text-[#16152b] text-white/80 text-xs transition-all flex items-center gap-1.5"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Copiado!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5" />
-                        <span>Copiar</span>
-                      </>
-                    )}
-                  </button>
+                <div className="w-7 h-7 rounded-full bg-[#e8a8bf]/20 border border-[#e8a8bf] flex items-center justify-center text-[#e8a8bf] text-xs">
+                  🎓
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
 
-      </div>
-    </section>
-  );
+          {/* VERSÃO DESKTOP */}
+          <div className="hidden lg:flex flex-col items-center justify-center w-full">
+            <div className="mb-4 bg-white/5 p-1.5 rounded-full border border-white/10 flex items-center gap-1 z-20">
+              <button
+                onClick={() => setViewMode('photo')}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 ${
+                  viewMode === 'photo'
+                    ? 'bg-[#e8a8bf] text-[#16152b] shadow-md font-semibold'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                Foto
+              </button>
+              <button
+                onClick={() => setViewMode('code')}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 ${
+                  viewMode === 'code'
+                    ? 'bg-[#e8a8bf] text-[#16152b] shadow-md font-semibold'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                <Code2 className="w-3.5 h-3.5" />
+                Hello World Card
+              </button>
+            </div>
+
+            <div className="relative w-full max-w-[440px] aspect-[4/4.5] shadow-2xl rounded-2xl">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#e8a8bf]/20 to-[#9d4edd]/20 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
+
+            <motion.div
+              className="w-full h-full perspective-1000 cursor-pointer"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => setViewMode(viewMode === 'photo' ? 'code' : 'photo')}
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              <div
+                className={`w-full h-full relative duration-700 transition-all transform-gpu rounded-2xl ${
+                  viewMode === 'code' ? '[transform:rotateY(180deg)]' : ''
+                }`}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* FRENTE: Foto */}
+                <div
+                  className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 overflow-hidden flex flex-col justify-between"
+                    style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                >
+                  <img
+                    src={foto}
+                    alt="Natália Peralta"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
+                    <div>
+                      <p className="text-xs font-bold text-white">Ciência da Computação</p>
+                      <p className="text-[10px] text-[#e8a8bf]">Graduada em 2024</p>
+                    </div>
+                    <div className="w-7 h-7 rounded-full bg-[#e8a8bf]/20 border border-[#e8a8bf] flex items-center justify-center text-[#e8a8bf] text-xs">
+                      🎓
+                    </div>
+                  </div>
+                </div>
+
+                {/* VERSO: Hello World Card */}
+                <div
+                  className="absolute inset-0 w-full h-full rounded-2xl border border-[#e8a8bf]/30 bg-[#16152b] p-6 overflow-hidden flex flex-col justify-between font-mono text-sm leading-relaxed [transform:rotateY(180deg)]"
+                  style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                >
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-rose-500"></span>
+                        <span className="w-3 h-3 rounded-full bg-amber-500"></span>
+                        <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+                      </div>
+                      <span className="text-white/50 text-xs tracking-wider">hello-world.tsx</span>
+                      <span className="text-[#e8a8bf] text-xs font-sans">✦ 2026</span>
+                    </div>
+
+                    <div className="space-y-1 text-xs sm:text-sm font-mono">
+                      <p>
+                        <span className="text-[#9d4edd] font-semibold">const</span>{' '}
+                        <span className="text-[#818cf8]">developer</span>{' '}
+                        <span className="text-white">=</span> <span className="text-white">{`{`}</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">name</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'Natália Peralta'</span>
+                        <span className="text-white">,</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">role</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'Front-End Developer'</span>
+                        <span className="text-white">,</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">degree</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'Ciência da Computação'</span>
+                        <span className="text-white">,</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">focus</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'React & Modern UI/UX'</span>
+                        <span className="text-white">,</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">passion</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'Transformar código em arte'</span>
+                        <span className="text-white">,</span>
+                      </p>
+                      <p className="pl-4">
+                        <span className="text-[#e8a8bf]">learning</span>
+                        <span className="text-white">:</span>{' '}
+                        <span className="text-[#34d399]">'always'</span>
+                      </p>
+                      <p className="text-white">{`};`}</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-xs text-white/40">// Pronto para criar algo novo?</span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopyCode();
+                      }}
+                      className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-[#e8a8bf] hover:text-[#16152b] text-white/80 text-xs transition-all flex items-center gap-1.5"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <span>Copiado!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copiar</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div> 
+      </motion.div>
+
+    </div>
+  </section>
+);
 };
