@@ -7,6 +7,7 @@ import iphone from '../assets/iphone.png';
 import insta from '../assets/insta.png';
 import garol from '../assets/garol.png';
 import vimais from '../assets/vimais.png';
+import stardew from '../assets/stardew.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -28,8 +29,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Plataforma web responsiva para amantes da leitura, integrada com leitura de código de barras via câmera e persistência via LocalStorage.',
     tags: ['React', 'TypeScript', 'Google Books API', 'CSS Modules'],
     image: kitbook,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://kitbook-kappa.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/Kit-Book'
   },
   {
     id: '3',
@@ -38,9 +39,9 @@ export const PROJECTS: Project[] = [
     description: 'Interface interativa inspirada em pixel art com temas dinâmicos e componentes customizados.',
     longDescription: 'Projeto conceitual e funcional explorando estética retro, componentes de diálogo animados e mecânicas visuais divertidas.',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Pixel Art'],
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80',
-    demoUrl: '#',
-    codeUrl: '#'
+    image: stardew,
+    demoUrl: 'https://stardew-valley-portfolio.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/stardew-valley-portfolio'
   },
   {
     id: '4',
@@ -51,7 +52,7 @@ export const PROJECTS: Project[] = [
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: medfast,
     demoUrl: '#',
-    codeUrl: '#'
+    codeUrl: 'https://github.com/Plataforma-Saude'
   },
   {
     id: '5',
@@ -61,8 +62,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Aplicação desenvolvida em equipe focada em acessibilidade WCAG, agendamento facilitado e prontuário digital estilizado.',
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: movies,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://react-movies-mpi4.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/react-movies'
   },
   {
     id: '6',
@@ -72,8 +73,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Aplicação desenvolvida em equipe focada em acessibilidade WCAG, agendamento facilitado e prontuário digital estilizado.',
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: todo,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://to-do-list-js-orpin.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/to-do-list-js'
   },
   {
     id: '7',
@@ -83,8 +84,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Aplicação desenvolvida em equipe focada em acessibilidade WCAG, agendamento facilitado e prontuário digital estilizado.',
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: iphone,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://natiperalta.github.io/clone_iphone13/',
+    codeUrl: 'https://github.com/NatiPeralta/clone_iphone13'
   },
   {
     id: '8',
@@ -94,8 +95,8 @@ export const PROJECTS: Project[] = [
     longDescription: 'Aplicação desenvolvida em equipe focada em acessibilidade WCAG, agendamento facilitado e prontuário digital estilizado.',
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: insta,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://natiperalta.github.io/clone-home-instagram/',
+    codeUrl: 'https://github.com/NatiPeralta/clone-home-instagram'
   },
   {
     id: '9',
@@ -105,7 +106,7 @@ export const PROJECTS: Project[] = [
     longDescription: 'Aplicação desenvolvida em equipe focada em acessibilidade WCAG, agendamento facilitado e prontuário digital estilizado.',
     tags: ['React', 'Tailwind CSS', 'UX Research', 'Git'],
     image: garol,
-    demoUrl: '#',
-    codeUrl: '#'
+    demoUrl: 'https://natiperalta.github.io/casa-nova/',
+    codeUrl: 'https://github.com/NatiPeralta/casa-nova'
   },
 ];
