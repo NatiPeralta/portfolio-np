@@ -1,3 +1,8 @@
+export interface ProjectGalleryItem {
+  image: string;
+  caption: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -8,6 +13,10 @@ export interface Project {
   image: string;
   demoUrl: string;
   codeUrl: string;
+  videoUrl?: string;
+  gallery?: ProjectGalleryItem[];
+  highlights?: string[]; 
+  isPrivateRepo?: boolean;
 }
 
 export interface Skill {
