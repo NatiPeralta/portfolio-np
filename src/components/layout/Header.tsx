@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-40 bg-[#16152b]/90 backdrop-blur-md border-b border-white/5 px-6 py-4 transition-all">
+    <header className="fixed top-0 left-0 w-full z-40 bg-[#16152b]/95 md:bg-[#16152b]/90 md:backdrop-blur-md border-b border-white/5 px-6 py-4 transition-colors">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Lado Esquerdo: Logotipo e Legenda */}
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
 
       {/* Menu Dropdown / Gaveta Mobile */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-[#16152b]/95 backdrop-blur-xl border-b border-white/10 py-6 px-6 shadow-2xl transition-all flex flex-col gap-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#16152b] border-b border-white/10 py-6 px-6 shadow-2xl transition-all flex flex-col gap-4">
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a

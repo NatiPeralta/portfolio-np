@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   // Alternância automática a cada 3 segundos (pausa se o mouse estiver em cima)
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || window.innerWidth < 1024) return;
 
     const interval = setInterval(() => {
       setViewMode(viewMode === 'photo' ? 'code' : 'photo');
@@ -148,14 +148,14 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* VERSÃO MOBILE */}
           <div className="block lg:hidden w-full max-w-[360px] aspect-[4/4.5] relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#e8a8bf]/20 to-[#9d4edd]/20 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
-            <div className="w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 shadow-2xl overflow-hidden flex flex-col justify-between">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#e8a8bf]/20 to-[#9d4edd]/20 rounded-3xl blur-xl -z-10"></div>
+            <div className="w-full h-full rounded-2xl border border-[#e8a8bf]/40 bg-[#16152b] p-3 shadow-xl overflow-hidden flex flex-col justify-between">
               <img
                 src={foto}
                 alt="Natália Peralta"
                 className="w-full h-full object-cover rounded-xl"
               />
-              <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 backdrop-blur-md border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
+              <div className="absolute bottom-6 left-6 right-6 bg-[#16152b]/95 border border-white/10 p-3.5 rounded-xl flex items-center justify-between shadow-lg">
                 <div>
                   <p className="text-xs font-bold text-white">Ciência da Computação</p>
                   <p className="text-[10px] text-[#e8a8bf]">Graduada em 2024</p>
