@@ -1,6 +1,6 @@
 # 💻 Portfólio Profissional - Nati Peralta
 
-Portfólio oficial desenvolvido para apresentar minha trajetória, habilidades técnicas e principais projetos como **Desenvolvedora Front-end**. A aplicação foi arquitetada com foco em performance, código tipado, experiência do usuário (UX) fluida e microinterações visuais modernas.
+Portfólio oficial desenvolvido para apresentar minha trajetória, habilidades técnicas e principais projetos como **Desenvolvedora Full Stack**. A aplicação foi arquitetada com foco em performance, código tipado, experiência do usuário (UX) fluida e microinterações visuais modernas.
 
 ---
 
@@ -62,7 +62,7 @@ Caso utilize chaves de API para o serviço de envio de e-mail do formulário de 
 👩‍💻 Autora
 
 Nati Peralta
-Desenvolvedora Front-end
+Desenvolvedora Full Stack
 
     GitHub: @NatiPeralta
 
