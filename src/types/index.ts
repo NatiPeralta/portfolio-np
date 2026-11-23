@@ -21,7 +21,7 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  category: 'Frontend' | 'UI/UX' | 'Ferramentas';
+  category: 'FRONTEND' | 'BACKEND' | 'BANCO DE DADOS' | 'BACKEND / INTEGRAÇÃO' | 'UI/UX' | 'FERRAMENTAS';
   iconName: string;
 }
 
