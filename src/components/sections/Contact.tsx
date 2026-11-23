@@ -59,7 +59,7 @@ export const Contact: React.FC<ContactProps> = ({ onSendMessage }) => {
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Quer conversar comigo?</h2>
             <p className="text-white/60 text-sm leading-relaxed">
-              Estou disponível para vagas Júnior de Front-End Developer, projetos freelancers ou parcerias de desenvolvimento.
+              Estou disponível para vagas Júnior de Full Stack Developer, projetos freelancers ou parcerias de desenvolvimento.
             </p>
           </div>
 

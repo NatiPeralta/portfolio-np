@@ -2,6 +2,27 @@ import React from 'react';
 import { Skill } from '../../types';
 import { Reveal } from '../common/Reveal';
 
+import { 
+  Code2, FileCode, Terminal, Server, Coffee, Database, 
+  Layout, Sparkles, Palette, GitBranch, Figma, Globe 
+} from 'lucide-react';
+
+// Dicionário que liga o texto do iconName ao componente real
+const iconMap: Record<string, React.ReactNode> = {
+  Code2: <Code2 className="w-5 h-5 text-[#e8a8bf]" />,
+  FileCode: <FileCode className="w-5 h-5 text-[#e8a8bf]" />,
+  Terminal: <Terminal className="w-5 h-5 text-[#e8a8bf]" />,
+  Coffee: <Coffee className="w-5 h-5 text-[#e8a8bf]" />,
+  Server: <Server className="w-5 h-5 text-[#e8a8bf]" />,
+  Database: <Database className="w-5 h-5 text-[#e8a8bf]" />,
+  Layout: <Layout className="w-5 h-5 text-[#e8a8bf]" />,
+  Sparkles: <Sparkles className="w-5 h-5 text-[#e8a8bf]" />,
+  Palette: <Palette className="w-5 h-5 text-[#e8a8bf]" />,
+  GitBranch: <GitBranch className="w-5 h-5 text-[#e8a8bf]" />,
+  Figma: <Figma className="w-5 h-5 text-[#e8a8bf]" />,
+  Globe: <Globe className="w-5 h-5 text-[#e8a8bf]" />,
+};
+
 interface SkillsProps {
   skills: Skill[];
 }
@@ -16,7 +37,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Habilidades & Stacks</h2>
           <p className="text-white/60 text-sm">
-            Combinação de conhecimentos acadêmicos em Ciência da Computação com práticas modernas de desenvolvimento front-end.
+            Combinação de conhecimentos acadêmicos em Ciência da Computação com práticas modernas de desenvolvimento full stack.
           </p>
         </div>
 
@@ -29,7 +50,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
             >
               <div>
                 <div className='mb-4 sm:mb-6'>
-                  <span className="text-[10px] sm:text-xs text-[#e8a8bf] font-mono uppercase tracking-wider">{skill.category}</span>
+                  <span className="text-[10px] sm:text-xs text-[#e8a8bf] font-mono uppercase tracking-wider">{iconMap[skill.iconName]}  {skill.category}</span>
                   <h3 className="font-bold text-sm sm:text-lg mt-0.5 sm:mt-1 group-hover:text-[#e8a8bf] transition-colors">{skill.name}</h3>
                 </div>
               </div>

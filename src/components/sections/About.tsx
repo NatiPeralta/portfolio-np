@@ -7,12 +7,12 @@ export const About: React.FC = () => {
     {
       icon: GraduationCap,
       title: 'Formação Acadêmica',
-      description: 'Formada em Ciência da Computação (2024). Base sólida em estrutura de dados e engenharia de software aplicada à web.'
+      description: 'Formada em Ciência da Computação (2024). Base sólida em estrutura de dados, lógica de programação e engenharia de software aplicada à web.'
     },
     {
       icon: Code,
-      title: 'Front-End Moderno',
-      description: 'Experiência prática em desenvolvimento de interfaces utilizando React, JavaScript (ES6+), TypeScript e Tailwind CSS para aplicações ágeis.'
+      title: 'Desenvolvimento Full Stack',
+      description: 'Construção de aplicações de ponta a ponta: interfaces reativas com React e TypeScript integradas a APIs REST em Java, Spring Boot e bancos de dados MySQL.'
     },
     {
       icon: Palette,

@@ -108,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({
 
           <motion.div variants={itemVariants}>
             <p className="text-lg text-white/70 max-w-xl font-light leading-relaxed">
-              Desenvolvedora front-end em construção, apaixonada por transformar ideias em experiências digitais intuitivas, elegantes e acessíveis.
+              Desenvolvedora full stack construindo soluções completas de ponta a ponta, com foco em performance, código limpo e experiências digitais acessíveis.
             </p>
           </motion.div>
 
@@ -267,7 +267,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <p className="pl-4">
                         <span className="text-[#e8a8bf]">role</span>
                         <span className="text-white">:</span>{' '}
-                        <span className="text-[#34d399]">'Front-End Developer'</span>
+                        <span className="text-[#34d399]">'Full Stack Developer'</span>
                         <span className="text-white">,</span>
                       </p>
                       <p className="pl-4">
@@ -279,7 +279,7 @@ export const Hero: React.FC<HeroProps> = ({
                       <p className="pl-4">
                         <span className="text-[#e8a8bf]">focus</span>
                         <span className="text-white">:</span>{' '}
-                        <span className="text-[#34d399]">'React & Modern UI/UX'</span>
+                        <span className="text-[#34d399]">'React, Java/Spring Boot & MySQL'</span>
                         <span className="text-white">,</span>
                       </p>
                       <p className="pl-4">

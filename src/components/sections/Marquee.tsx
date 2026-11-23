@@ -2,11 +2,11 @@ import React from 'react';
 
 export const Marquee: React.FC = () => {
   const items = [
-    'DESENVOLVIMENTO CRIATIVO',
-    'EXPERIÊNCIAS DIGITAIS',
-    'FRONT-END COM PROPÓSITO',
-    'UI & UX DESIGN',
+    'DESENVOLVIMENTO FULL STACK',
+    'SOLUÇÕES DE PONTA A PONTA',
     'REACT & TYPESCRIPT',
+    'JAVA & SPRING BOOT',
+    'APIS REST & MYSQL',
   ];
 
   return (
