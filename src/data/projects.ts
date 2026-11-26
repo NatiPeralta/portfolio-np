@@ -32,28 +32,6 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '2',
-    title: 'KitBook - Gerenciador e Planejador de Leitura',
-    category: 'Projetos Pessoais',
-    description: 'Aplicação web para planejamento de metas de leitura, sorteio de livros e busca automatizada via código de barras e Google Books API.',
-    longDescription: 'Aplicação web responsiva (Mobile-First) criada para organizar hábitos de leitura em etapas intuitivas. Conta com integração à Google Books API para busca por título ou ISBN, leitor de código de barras via câmera do dispositivo, cálculo dinâmico de metas diárias/semanais e persistência automática de dados no navegador utilizando LocalStorage.',
-    tags: ['React', 'TypeScript', 'Google Books API', 'CSS Modules', 'LocalStorage'],
-    image: kitbook,
-    demoUrl: 'https://kitbook-kappa.vercel.app/',
-    codeUrl: 'https://github.com/NatiPeralta/Kit-Book',
-  },
-  {
-    id: '3',
-    title: 'Portfólio Pixel Art - Inspirado em Stardew Valley',
-    category: 'Projetos Pessoais',
-    description: 'Interface interativa em pixel art com alternância dinâmica de temas (dia/noite), caixas de diálogo e componentes customizados.',
-    longDescription: 'Projeto criativo desenvolvido para unir design temático em pixel art e desenvolvimento Front-End puro. Apresenta sistema de alternância entre temas claro e escuro (dia e noite), caixas de diálogo interativas inspiradas no universo de Stardew Valley, barras de habilidades personalizadas e layout responsivo construído sem dependências de frameworks.',
-    tags: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'UI/UX', 'Pixel Art'],
-    image: stardew,
-    demoUrl: 'https://stardew-valley-portfolio.vercel.app/',
-    codeUrl: 'https://github.com/NatiPeralta/stardew-valley-portfolio'
-  },
-  {
-    id: '4',
     title: 'MedFast - Plataforma White-Label de Saúde',
     category: 'Projetos Acadêmicos',
     description: 'Sistema white-label de agendamento médico com personalização dinâmica de identidade visual, portal do paciente e dashboard administrativo.',
@@ -90,7 +68,18 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: '5',
+    id: '3',
+    title: 'KitBook - Gerenciador e Planejador de Leitura',
+    category: 'Projetos Pessoais',
+    description: 'Aplicação web para planejamento de metas de leitura, sorteio de livros e busca automatizada via código de barras e Google Books API.',
+    longDescription: 'Aplicação web responsiva (Mobile-First) criada para organizar hábitos de leitura em etapas intuitivas. Conta com integração à Google Books API para busca por título ou ISBN, leitor de código de barras via câmera do dispositivo, cálculo dinâmico de metas diárias/semanais e persistência automática de dados no navegador utilizando LocalStorage.',
+    tags: ['React', 'TypeScript', 'Google Books API', 'CSS Modules', 'LocalStorage'],
+    image: kitbook,
+    demoUrl: 'https://kitbook-kappa.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/Kit-Book',
+  },
+  {
+    id: '4',
     title: 'React Movies - Catálogo e Busca de Filmes',
     category: 'Projetos Acadêmicos',
     description: 'Aplicação web para explorar filmes, realizar buscas em tempo real, navegar por páginas e gerenciar uma lista de favoritos.',
@@ -99,6 +88,17 @@ export const PROJECTS: Project[] = [
     image: movies,
     demoUrl: 'https://react-movies-mpi4.vercel.app/',
     codeUrl: 'https://github.com/NatiPeralta/react-movies'
+  },
+  {
+    id: '5',
+    title: 'Portfólio Pixel Art - Inspirado em Stardew Valley',
+    category: 'Projetos Pessoais',
+    description: 'Interface interativa em pixel art com alternância dinâmica de temas (dia/noite), caixas de diálogo e componentes customizados.',
+    longDescription: 'Projeto criativo desenvolvido para unir design temático em pixel art e desenvolvimento Front-End puro. Apresenta sistema de alternância entre temas claro e escuro (dia e noite), caixas de diálogo interativas inspiradas no universo de Stardew Valley, barras de habilidades personalizadas e layout responsivo construído sem dependências de frameworks.',
+    tags: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'UI/UX', 'Pixel Art'],
+    image: stardew,
+    demoUrl: 'https://stardew-valley-portfolio.vercel.app/',
+    codeUrl: 'https://github.com/NatiPeralta/stardew-valley-portfolio'
   },
   {
     id: '6',
